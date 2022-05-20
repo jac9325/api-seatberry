@@ -14,3 +14,15 @@ export const getAllCarsByUser = async (request, response) => {
     response.status(500).json({ error: e + "error de servidor" });
   }
 };
+
+export const createCar = async (req, res) => {
+  const car = req.body;
+  try {
+    const newCar = new Car(car);
+    const carnew = await newCar.save();
+    if (carnew) res.status(201).send(carnew);
+    else res.status(204).send("Error al crear");
+  } catch (err) {
+    res.status(500).send(err);
+  }
+};
