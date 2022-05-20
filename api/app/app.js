@@ -1,5 +1,5 @@
 import express from "express";
-import { CarRouter } from "../routes/index.js";
+import { CarRouter, UserRouter, RentRouter } from "../routes/index.js";
 /**
  * Express
  */
@@ -13,6 +13,8 @@ app.get("/", (request, response) => {
   response.send("Hola!!! API SEAT BERRY");
 });
 
-app.use("/api", CarRouter);
+app.use("/seatberry", CarRouter);
+app.use("/seatberry", UserRouter);
+app.use("/seatberry", RentRouter);
 
 export default app;
