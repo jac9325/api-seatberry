@@ -45,20 +45,9 @@ export const getAllRents2 = async (req, res) => {
 export const getRentbyId = async (req, res) => {
   const { id: idRent } = req.params;
   try {
-    const resultado = await Rent.aggregate([
-      {
-        $lookup: {
-          from: "cars",
-          localField: "id_car",
-          foreignField: "_id",
-          as: "carRent",
-        },
-      },
-      { $unwind: "$carRent" },
-    ]);
+    const resultado = await Rent.findById(idRent);
     if (resultado) {
-      const rent = resultado.find((element) => (element._id = idRent));
-      res.status(200).json(rent);
+      res.status(200).json(resultado);
     }
   } catch (error) {
     res.status(204).send({ error: "no hay conexion con el servidor" });

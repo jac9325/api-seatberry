@@ -1,7 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
 import app from "./api/app/app.js";
-
 import "dotenv/config";
 /**
  * Mongoose
