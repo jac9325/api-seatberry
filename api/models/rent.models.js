@@ -3,7 +3,7 @@ const { Schema, SchemaTypes } = mongoose;
 
 const rentSchema = new Schema({
   id_user: {
-    type: String,
+    type: mongoose.Types.ObjectId,
     required: [true, ""],
   },
   max_days: {
@@ -20,8 +20,8 @@ const rentSchema = new Schema({
     type: Date,
     required: [true, ""],
   },
-  id_user: {
-    type: String,
+  id_car: {
+    type: mongoose.Types.ObjectId,
     required: [true, ""],
   },
   description: {
