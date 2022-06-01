@@ -16,10 +16,9 @@ await mongoose.connect(
 mongoose.connection.on("error", function (e) {
   console.error("Connection error", e);
 });
-
-const PORT = process.env.PORT || 5000;
+app.set("PORT", 5000 || process.env.PORT);
 
 // Launch server
-app.listen(5000, () => {
+app.listen(app.get("PORT"), () => {
   console.log("Initialize server!!");
 });
