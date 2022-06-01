@@ -20,6 +20,6 @@ mongoose.connection.on("error", function (e) {
 const PORT = process.env.PORT || 5000;
 
 // Launch server
-app.listen(5000, () => {
+app.listen(PORT, () => {
   console.log("Initialize server!!");
 });
